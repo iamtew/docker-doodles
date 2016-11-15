@@ -11,7 +11,7 @@ popd()  { command popd "$@" &> /dev/null; }
 
 build_and_push() {
   [[ -d $1 ]] || return 1
-  local image="$1"
+  local image="$( basename $1 )"
   pushd $image
 
   echo "Building and pushing '$image' as '${ORG}/${REPO}:$image' ..."
