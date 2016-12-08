@@ -1,0 +1,5 @@
+pipeline:
+  build:
+    image: iamtew/vamp-buildserver:dev
+    commands:
+      - make
