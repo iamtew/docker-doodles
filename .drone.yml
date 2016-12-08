@@ -2,4 +2,5 @@ pipeline:
   build:
     image: iamtew/vamp-buildserver:dev
     commands:
+      - echo $dhpw
       - ./build.sh
