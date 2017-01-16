@@ -11,23 +11,23 @@ popd()  { command popd "$@" &> /dev/null; }
 
 docker_build() {
   [[ -d $1 ]] || return 1
-  local image="$( basename $1 )"
-  pushd $image
+  local tag="$( basename $1 )"
+  pushd $tag
 
-  echo "Building '$image' as '${ORG}/${REPO}:$image' ..."
+  echo "Building '$tag' as '${ORG}/${REPO}:$tag' ..."
 
-  docker build --tag "${ORG}/${REPO}:$image" .
+  docker build --tag "${ORG}/${REPO}:$tag" .
   popd
 }
 
 docker_push() {
   [[ -d $1 ]] || return 1
-  local image="$( basename $1 )"
-  pushd $image
+  local tag="$( basename $1 )"
+  pushd $tag
 
-  echo "Pushing '$image' as '${ORG}/${REPO}:$image' ..."
+  echo "Pushing '$tag' as '${ORG}/${REPO}:$tag' ..."
 
-  docker push "${ORG}/${REPO}:$image"
+  docker push "${ORG}/${REPO}:$tag"
   popd
 }
 
