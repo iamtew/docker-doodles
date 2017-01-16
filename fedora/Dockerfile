@@ -20,3 +20,5 @@ RUN set -xe \
 
 RUN set -xe \
     && setcap cap_net_raw,cap_net_admin+p /usr/bin/ping
+
+ADD doodles.sh /etc/profile.d/doodles.sh
