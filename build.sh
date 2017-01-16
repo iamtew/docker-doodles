@@ -33,8 +33,10 @@ docker_push() {
 
 if [[ $1 ]]; then
   docker_build "$1"
+  docker_push "$1"
 else
   for image in $IMAGES ; do
     docker_build "$image"
+    docker_push "$image"
   done
 fi
